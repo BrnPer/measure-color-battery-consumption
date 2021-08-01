@@ -24,6 +24,11 @@ class _MainScreenState extends State<MainScreen> {
               direction: Axis.vertical,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Flexible(
+                  flex: 2,
+                  child: ColorPicker(
+                      colors: controller.colors,
+                ),
               ],
             ),
           ),
