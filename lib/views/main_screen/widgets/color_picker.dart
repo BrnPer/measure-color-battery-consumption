@@ -4,10 +4,13 @@ class ColorPicker extends StatelessWidget {
   ColorPicker(
       {Key? key,
       required this.colors,
+      required this.selectedColor,
       required this.onColorClick})
       : super(key: key);
 
   List<Color> colors;
+  Color selectedColor;
+
   Function onColorClick;
 
   Color getAppropriateColor(Color color) {
@@ -24,6 +27,9 @@ class ColorPicker extends StatelessWidget {
       child: Container(
           decoration: BoxDecoration(
               color: color,
+              border: selectedColor == color
+                  ? Border.all(color: getAppropriateColor(color), width: 3)
+                  : null,
               borderRadius: BorderRadius.all(Radius.circular(10))),
           height: 50,
           width: 50),

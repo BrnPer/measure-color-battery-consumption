@@ -29,6 +29,7 @@ class _MainScreenState extends State<MainScreen> {
                   flex: 2,
                   child: ColorPicker(
                       colors: controller.colors,
+                      selectedColor: controller.color.value,
                       onColorClick: (color) => controller.changeColors(color)),
                 ),
               ],
