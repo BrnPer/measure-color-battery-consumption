@@ -27,6 +27,26 @@ class _MainScreenState extends State<MainScreen> {
               children: [
                 Flexible(
                   flex: 2,
+                  child: Container(),
+                ),
+                Flexible(
+                  flex: 6,
+                  child: Center(
+                    child: RxBuilder(builder: (_) {
+                      return Text(
+                        'Current Discharging Now \r\n\r\n ${controller.currentDischargeValue.value} mA',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: (controller.color.value == Colors.white)
+                                ? Colors.black
+                                : Colors.white,
+                            fontSize: 20),
+                      );
+                    }),
+                  ),
+                ),
+                Flexible(
+                  flex: 2,
                   child: ColorPicker(
                       colors: controller.colors,
                       selectedColor: controller.color.value,
