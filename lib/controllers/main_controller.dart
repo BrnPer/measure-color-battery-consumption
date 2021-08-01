@@ -13,4 +13,7 @@ class MainController {
     Colors.green
   ];
 
+  changeColors(Color newColor) {
+    color.value = newColor;
+  }
 }

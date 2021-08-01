@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:measure_color_battery_consumption/controllers/main_controller.dart';
+import 'package:measure_color_battery_consumption/views/main_screen/widgets/color_picker.dart';
 import 'package:rx_notifier/rx_notifier.dart';
 
 class MainScreen extends StatefulWidget {
@@ -28,6 +29,7 @@ class _MainScreenState extends State<MainScreen> {
                   flex: 2,
                   child: ColorPicker(
                       colors: controller.colors,
+                      onColorClick: (color) => controller.changeColors(color)),
                 ),
               ],
             ),
