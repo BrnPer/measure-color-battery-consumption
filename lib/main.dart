@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:measure_color_battery_consumption/views/discharge_screen/discharge_screen.dart';
 import 'package:measure_color_battery_consumption/views/main_screen/main_screen.dart';
 
 void main() {
@@ -14,8 +15,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         backgroundColor: Colors.red,
         primarySwatch: Colors.blue,
-      ),
-      home: MainScreen(),
+      routes: {
+        "/": (context) => MainScreen(),
+        "/current_energy": (context) => DischargeScreen()
+      },
+      initialRoute: "/",
     );
   }
 }
