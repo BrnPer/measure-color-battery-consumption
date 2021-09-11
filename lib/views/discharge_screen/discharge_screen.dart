@@ -3,14 +3,14 @@ import 'package:measure_color_battery_consumption/common/widgets/color_picker.da
 import 'package:measure_color_battery_consumption/controllers/discharge_screen_controller.dart';
 import 'package:rx_notifier/rx_notifier.dart';
 
-class MainScreen extends StatefulWidget {
-  MainScreen({Key? key}) : super(key: key);
+class DischargeScreen extends StatefulWidget {
+  DischargeScreen({Key? key}) : super(key: key);
 
   @override
-  _MainScreenState createState() => _MainScreenState();
+  _DischargeScreenState createState() => _DischargeScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _DischargeScreenState extends State<DischargeScreen> {
   final DischargeScreenController controller = DischargeScreenController();
 
   @override

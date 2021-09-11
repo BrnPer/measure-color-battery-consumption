@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:measure_color_battery_consumption/helpers/messaging_helper.dart';
 import 'package:rx_notifier/rx_notifier.dart';
 
-class MainController {
+class DischargeScreenController {
   var color = RxNotifier<Color>(Colors.black);
 
   var currentDischargeValue = RxNotifier<double?>(null);
@@ -13,7 +13,7 @@ class MainController {
   late Timer periodicTimer;
   final Duration interval = const Duration(milliseconds: 250);
 
-  MainController() {
+  DischargeScreenController() {
     periodicTimer =
         new Timer.periodic(interval, (Timer t) => changeDischargeAmount());
   }
