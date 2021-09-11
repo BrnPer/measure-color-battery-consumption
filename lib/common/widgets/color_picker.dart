@@ -8,10 +8,10 @@ class ColorPicker extends StatelessWidget {
       required this.onColorClick})
       : super(key: key);
 
-  List<Color> colors;
-  Color selectedColor;
+  final List<Color> colors;
+  final Color selectedColor;
 
-  Function onColorClick;
+  final Function onColorClick;
 
   Color getAppropriateColor(Color color) {
     if (color == Colors.white) return Colors.black;
