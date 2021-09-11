@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:measure_color_battery_consumption/common/widgets/color_picker.dart';
-import 'package:measure_color_battery_consumption/controllers/discharge_screen_controller.dart';
-import 'package:rx_notifier/rx_notifier.dart';
+import 'package:measure_color_battery_consumption/common/widgets/my_button.dart';
+import 'package:measure_color_battery_consumption/controllers/main_screen_controller.dart';
 
 class MainScreen extends StatefulWidget {
   MainScreen({Key? key}) : super(key: key);
@@ -11,52 +10,56 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  final DischargeScreenController controller = DischargeScreenController();
+  final MainScreenController controller = MainScreenController();
 
   @override
   Widget build(BuildContext context) {
-    return RxBuilder(builder: (_) {
-      return Scaffold(
-        backgroundColor: controller.color.value,
-        body: SafeArea(
-          child: Container(
-            alignment: Alignment.center,
-            child: Flex(
-              direction: Axis.vertical,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Flexible(
-                  flex: 2,
-                  child: Container(),
-                ),
-                Flexible(
-                  flex: 6,
-                  child: Center(
-                    child: RxBuilder(builder: (_) {
-                      return Text(
-                        'Current Discharging Now \r\n\r\n ${controller.currentDischargeValue.value} mA',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: (controller.color.value == Colors.white)
-                                ? Colors.black
-                                : Colors.white,
-                            fontSize: 20),
-                      );
-                    }),
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Wrap(
+                direction: Axis.horizontal,
+                alignment: WrapAlignment.center,
+                children: [
+                  Text("Measure",
+                      style: TextStyle(color: Colors.white, fontSize: 35)),
+                  Icon(
+                    Icons.battery_saver,
+                    color: Colors.green,
+                    size: 60,
                   ),
-                ),
-                Flexible(
-                  flex: 2,
-                  child: ColorPicker(
-                      colors: controller.colors,
-                      selectedColor: controller.color.value,
-                      onColorClick: (color) => controller.changeColors(color)),
-                ),
-              ],
-            ),
+                  Text("Consumption",
+                      style: TextStyle(color: Colors.white, fontSize: 35)),
+                ],
+              ),
+              SizedBox(
+                height: 150,
+              ),
+              MyButton(
+                onButtonPress: controller.onStartTestClick,
+                text: "Start Test",
+                mainButton: true,
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              MyButton(
+                onButtonPress: () {
+                  controller.onShowCurrentEnergyClick(context);
+                },
+                text: "See Current Energy",
+                mainButton: false,
+              ),
+            ],
           ),
         ),
-      );
-    });
+      ),
+    );
   }
 }
