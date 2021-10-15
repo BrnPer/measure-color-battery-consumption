@@ -42,7 +42,7 @@ class _MainScreenState extends State<MainScreen> {
                 height: 150,
               ),
               MyButton(
-                onButtonPress: controller.onStartTestClick,
+                onButtonPress: () => controller.onStartTestClick(context),
                 text: "Start Test",
                 mainButton: true,
               ),
@@ -50,9 +50,8 @@ class _MainScreenState extends State<MainScreen> {
                 height: 30,
               ),
               MyButton(
-                onButtonPress: () {
-                  controller.onShowCurrentEnergyClick(context);
-                },
+                onButtonPress: () =>
+                    controller.onShowCurrentEnergyClick(context),
                 text: "See Current Energy",
                 mainButton: false,
               ),

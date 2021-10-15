@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
 class MainScreenController {
-  void onStartTestClick() {
-    print("Stat Test Button");
+  void onStartTestClick(BuildContext context) {
+    Navigator.pushNamed(context, '/test_discharge');
   }
 
   void onShowCurrentEnergyClick(BuildContext context) {
-    print("See Current Energy Button");
     Navigator.pushNamed(context, '/current_energy');
   }
 }
