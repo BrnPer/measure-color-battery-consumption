@@ -5,8 +5,10 @@ class TestDischargeInformation extends StatelessWidget {
   const TestDischargeInformation({Key? key, required this.onButtonPress})
       : super(key: key);
 
-  final String informationText =
-      """This text will take about 5 minutes. \r\n\r\n To get better results you should turn on airplane mode and close any background tasks happening. \r\n\r\n  During the test, screen brightness will change.
+  final String informationText = """The test will take about 5 minutes.
+      \r\nTo get better results you should: 
+      \r\n- Turn on airplane mode\r\n- Close background tasks\r\n- Disable auto-brightness      
+      \r\nDuring the test, screen brightness will change and your phone shouldn't be charging.
   """;
 
   final VoidCallback onButtonPress;
@@ -37,7 +39,7 @@ class TestDischargeInformation extends StatelessWidget {
                 Text(
                   informationText,
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                  style: TextStyle(color: Colors.white, fontSize: 17),
                 ),
                 MyButton(
                     text: "Start",
