@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.measure_color_battery_consumption">
    <application
-        android:label="measure_color_battery_consumption"
+        android:label="Measure Battery Consumption"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
